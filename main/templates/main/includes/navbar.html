@@ -1,7 +1,9 @@
+{% load static %}
+
 
 <nav>
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo">BRIDGE TOOLS ONLINE (TEST)</a>
+      <a href="/" class="brand-logo">BRIDGE TOOLS ONLINE</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
         <ul id="calculators_dropdown" class="dropdown-content">
@@ -20,7 +22,7 @@
         <li><a class="dropdown-trigger" data-target="dummies_dropdown">Tutorials</a></li>
 
         <ul id="misc_resources_dropdown" class="dropdown-content">
-          <li><a href="/wsdot_stations/">WSDOT Stations</a></li>
+          <li><a href="{%static 'FuelStations.pdf' %}">WSDOT Stations</a></li>
         </ul>
         <li><a class="dropdown-trigger" data-target="misc_resources_dropdown">Misc Resources</a></li>
 
