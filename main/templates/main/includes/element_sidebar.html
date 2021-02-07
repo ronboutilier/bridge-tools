@@ -1,0 +1,47 @@
+<div class="col s12, m9, l20">
+
+    {% if spans == 0 %}
+
+
+    {% else %}
+        {% for element_ids, element_names in elements %}
+            <a href="/{{trip}}/{{structure_id}}/{{element_ids}}", style="color:#000">
+                <div class="card hoverable">
+                    <div class="card-content">
+                        <div class="card-title">{{element_ids}}</div>
+                        <p style="font-size:12px">{{element_names}}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+
+
+
+
+        {% if notes_form != 0 %}
+            <form action="/{{trip}}/{{structure_id}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{notes_form.as_p}}
+            <button type="submit" class="btn bn-primary">Upload Notes</button>
+            </form>
+        {% endif %}
+
+        {% if history_form != 0 %}
+            <form action="/{{trip}}/{{structure_id}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{history_form.as_p}}
+            <button type="submit" class="btn bn-primary">Upload History</button>
+            </form>
+        {% endif %}
+
+
+
+
+
+
+
+
+
+    {% endif %}
+
+</div>

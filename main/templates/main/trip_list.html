@@ -1,0 +1,41 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+
+<h2>Trips</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Trip ID</th>
+            <th>Tools</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <body>
+       {% for trip in trips %}
+       <tr>
+           <td>{{trip.trip}}</td>
+           <td>
+               <form method="post" action="{% url 'main:bridge_tools' trip.pk %}">
+                   {% csrf_token %}
+               <button type="submit" class="btn btn-primary btn-sm">Tools</button>
+               </form>
+           </td>
+           <td>
+               <form method="post" action="{% url 'main:delete_trip' trip.pk %}">
+                   {% csrf_token %}
+               <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+               </form>
+           </td>
+       </tr>
+       {% endfor %}
+    </body>
+</table>
+
+
+
+
+
+{% endblock %}

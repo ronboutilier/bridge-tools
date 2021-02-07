@@ -1,0 +1,54 @@
+<head>
+    {% load static %}
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'main/css/materialize.css' %}">
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+    div.max {
+      margin: auto;
+      border: 3px;
+      }
+
+    div.col {
+      width: auto;
+      border: 3px;
+      }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+  {% include 'main/includes/navbar.html' %}
+  {% include 'main/includes/messages.html' %}
+
+  <div class="max">
+  	<br>
+    {% block content %}
+    {% endblock %}
+  </div>
+  
+</body>
+
+<script src="{% static 'tinymce/js/prism.js' %}"></script>
+<script>M.AutoInit();</script>

@@ -1,0 +1,21 @@
+
+        <div class="col s12, m9, l20">
+            <ul class="collapsible popout">
+                {% for bridge_id,structure_id,inspected_form,status,initials,route,milepost,name,trip_notes_form,trip_notes,lattitude,longitude in bridge %}
+                        <li>
+                            <div class="collapsible-header">{{bridge_id}}</div>
+                            <div class="collapsible-body">
+                                <p>Trip ID: {{trip}}</p>
+                                <p>SID: {{structure_id}}</p>
+                                <p>Name: {{name}}</p>
+                                <p>Route: {{route}} Milepost: {{milepost}}</p>
+                                <p>Lattitude: {{lattitude}}</p>
+                                <p>Longitude: -{{longitude}}</p>
+                                <p><a href="https://www.google.com/maps?q={{lattitude}},-{{longitude}}" target="_blank"><button class="btn waves-effect waves-light left-align" style="background-color:green; color:white">View Map</button></a></p>
+                                <p><a href="/{{trip}}/{{structure_id}}"><button class="btn waves-effect waves-light left-align" style="background-color:yellow; color:black">View Bridge</button></a></p>
+                            </div>
+                        </li>
+                {% endfor %}
+            </ul>
+        </div>
+

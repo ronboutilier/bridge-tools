@@ -1,0 +1,175 @@
+<div class="col s12, m9, l15">
+
+    <div class="row">
+    {% if spans == 0 %}
+
+        <b><------Select A Bridge To View.</b><br><br>
+
+        <a href="/{{trip}}/cover_sheet" target="_blank">Click here to view classic cover sheet</a>
+
+        <br>
+
+        <a href="/{{trip}}/checkout_check" target="_blank">Click here to check against the checkout list</a>
+
+        <table>
+                <tr><b><center>{{bridge_total}} Bridges</center></b></tr>
+                <tr>
+                    <th>Inspected</th>
+                    <th>Sructure ID</th>
+                    <th>Bridge No</th>
+                    <th>Route</th>
+                    <th>Milepost</th>
+                    <th>Name</th>
+                    <th>Notes</th>
+                </tr>
+        {% for bridge_id,structure_id,inspected_form,status,initials,route,milepost,name,trip_notes_form,trip_notes,lattitude,longitude in bridge %}
+
+                <tr>
+                    <td>
+                        {% if status %}
+                            {{initials}}
+                        {% else %}
+                            <form action="/{{trip}}/{{structure_id}}/inspected" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{inspected_form.as_p}}
+                            <button type="submit" class="btn bn-primary">Initial</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                    <td>{{structure_id}}</td>
+                    <td>{{bridge_id}}</td>
+                    <td>{{route}}</td>
+                    <td>{{milepost}}</td>
+                    <td>{{name}}</td>
+                    <td>
+                        {% if trip_notes != 'enter details here' %}
+                            {{trip_notes}}
+                        {% else %}
+                            <form action="/{{trip}}/{{structure_id}}/trip_notes" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{trip_notes_form.as_p}}
+                            <button type="submit" class="btn bn-primary">Add Notes</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+        {% endfor %}
+        </table>
+
+
+
+
+
+        
+
+    {% else %}
+
+        <a href="/{{trip}}/{{structure_id}}/bridge_model" target="_blank">Open Interactive 3D Model in new window</a>
+        <br>
+
+        Spans: {{spans}}<br>
+        Length: {{length}}<br>
+        Deck Width: {{deck_width}}<br>
+
+        <div id="scene3d"></div>
+
+
+        <style>
+        #scene3d {
+            background: black;
+        }
+        </style>
+
+
+
+        <script src= "https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
+        <script src= "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+        <script src= "https://cdn.jsdelivr.net/npm/three@0.101.1/examples/js/controls/OrbitControls.js"></script>
+
+        <script>
+
+        var spans = "{{spans}}";
+        var structure_length = "{{length}}";
+        var average_span_length = structure_length/spans;
+        var deck_width = "{{deck_width}}";
+
+        var scene3d = document.getElementById("scene3d");
+        var CANVAS_WIDTH = 500;
+        var CANVAS_HEIGHT = 500;
+
+        // SCENE
+
+        scene = new THREE.Scene();
+
+        // CAMERA 
+
+        camera = new THREE.PerspectiveCamera(45, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1200);
+        camera.position.set(0.5*structure_length,-40,0.75*structure_length);
+        camera.lookAt(scene.position);
+
+        // RENDERER
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor("#e5e5e5");
+        renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.addEventListener("change", () => renderer.render(scene, camera));
+
+        // GEOMETRY & MATERIALS
+
+
+        var cylinderGeometry = new THREE.CylinderGeometry(3, 3, 20, 8);
+        var cylinderMaterial = new THREE.MeshLambertMaterial({color: 0xD2D1CD});
+
+
+        var shape = new THREE.Shape();
+        shape.moveTo( -deck_width/2,20 );
+        shape.lineTo( -deck_width/2-5, 25 );
+        shape.lineTo( deck_width/2+5, 25 );
+        shape.lineTo( deck_width/2, 20 );
+        shape.lineTo( -deck_width/2, 20 );
+
+        var extrudeSettings = {
+            depth: -structure_length,
+            bevelEnabled: false,
+        };
+
+        var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+        var material = new THREE.MeshLambertMaterial( { color: 0xD2D1CD} );
+        var mesh = new THREE.Mesh( geometry, material ) ;
+        scene.add( mesh );
+        mesh.position.z = average_span_length
+
+        for (i = 0; i < spans-1; i++) {
+            var column = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+            scene.add(column);
+            column.position.y = 5
+            column.position.z = i*-average_span_length;
+        }
+
+        // LIGHT
+
+        var spot1 = new THREE.SpotLight(0xffffff);
+        spot1.intensity = 2;
+        spot1.position.set(0.5*structure_length,-40,0.75*structure_length);
+        scene.add(spot1);
+
+
+        // FINISH SCENE SETUP
+
+        scene3d.appendChild(renderer.domElement);
+        renderer.render(scene, camera);
+
+
+        </script>
+
+    </div>
+
+    <div class="row">
+        {% include 'main/includes/notes_view.html' %}
+    </div>  
+
+    {% endif %}
+
+</div>

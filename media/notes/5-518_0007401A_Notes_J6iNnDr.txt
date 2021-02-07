@@ -1,0 +1,126 @@
+Element ID                              
+Note                                                                                                                                                                                                                  
+include_in_report
+Repairs
+0 - Orientation                         
+Bridge is oriented west to east.                                                                                                                                                                                      
+Checked          
+
+11 - Load Rating                        
+                                                                                                                                                                                                                      
+Checked          
+
+12 - Concrete Deck                      
+Concrete deck has transverse hairline cracks and is worn to aggregate in the wheel lines.                                                                                                                             
+Checked          
+
+26 - Concrete Deck w/Coated Bars        
+Concrete deck with coated bars is located over Girder 2F (Girder 2F was replaced because of extensive impact damage).                                                                                                 
+Checked          
+
+35 - Concrete Deck Soffit               
+Soffit has transverse leaching cracks.                                                                                                                                                                                
+Checked          
+
+                                        
+Edge of deck has vertical leaching cracks.
+115 - Prestressed Concrete Girder       
+Prestressed concrete girders have top flange leaching cracks.                                                                                                                                                         
+Checked          
+
+                                        
+Girder 2A, south bottom flange at Pier 3, has a 3" x 6" corner delamination.
+                                        
+Girder 2B, north bottom flange at Pier 3, has a 3" x 6" corner delamination.
+200 - Abutment Fill                     
+East abutment slope protection is displaced in a few locations.                                                                                                                                                       
+Checked          
+
+205 - Concrete Pile/Column              
+Concrete columns have hairline cracks.                                                                                                                                                                                
+Checked          
+12932
+                                        
+Column 2A has an 18" x 8" x 3" deep impact spall with exposed rebar.  See photo #22.  REPAIR #12932
+215 - Concrete Abutment                 
+Concrete abutments have vertical hairline cracks, some are leaching.                                                                                                                                                  
+Checked          
+
+234 - Concrete Pier Cap/Crossbeam       
+Pier 3 cap has a small edge spall below Girder 2F.                                                                                                                                                                    
+Checked          
+
+266 - Concrete Sidewalk & Supports      
+Sidewalks have no approach transition ramps.                                                                                                                                                                          
+Checked          
+
+310 - Elastomeric Bearing               
+Elastomeric bearing grout pads are in contact with the south bottom flange of some of the girders with no spalling present.                                                                                           
+Checked          
+
+                                        
+At Pier 3, bearing below Girder 2F is overhanging the grout pad by 1-1/4".  See photo #28.
+330 - Metal Bridge Railing              
+Metal bridge rail, on the south side over Spans 1 and 2, has sections of metal rail that are slightly bent with a missing baluster.  See photo #21.  REPAIR #12931                                                    
+Checked          
+12931
+                                        
+Span 3, south rail near midspan, has a torn base due to impact damage.  REPAIR #12931
+                                        
+North rail, over Span 4, at ten posts from the east end is missing a nut at the rail mount.  REPAIR #12931
+331 - Concrete Bridge Railing           
+                                                                                                                                                                                                                      
+Checked          
+
+400 - Asphalt Butt Joint Seal           
+Asphalt butt joints at the approaches are not saw cut.                                                                                                                                                                
+Checked          
+
+404 - Compression Seal / Concrete Header
+Compression seal joints are located at the abutments.                                                                                                                                                                 
+Checked          
+
+417 - Silicone Rubber Joint Filler      
+Rubber filled joints are torn at several locations.                                                                                                                                                                   
+Checked          
+
+710 - Bridge Mounted Sign               
+Bridge mounted signs are located one on the south side (SB01928) and two on the north side.   North side sign over southbound right lane is inventoried (SB01929).  Sign over midspan is not.  See photos #24 and #26.
+Checked          
+
+1660 - Operating Level                  
+                                                                                                                                                                                                                      
+Checked          
+
+1684 - Bridge Rails                     
+Bridge rails do not meet current standards.                                                                                                                                                                           
+Checked          
+
+1685 - Transitions                      
+Transitions are not present.                                                                                                                                                                                          
+Checked          
+
+1686 - Guardrails                       
+Guardrail at the northwest corner is bent and has a broken post.  REPAIR #12471                                                                                                                                       
+Checked          
+12471
+                                        
+Guardrail at the northeast corner is not attached to the timber post.  See photo #8.  REPAIR #12471
+1687 - Terminals                        
+Terminals are not slotted.                                                                                                                                                                                            
+Checked          
+
+2675 - No. of Utilities                 
+Utilities consist of a 14" diameter pipe suspended between Girders A and B.                                                                                                                                           
+Checked          
+
+2688 - Revise Rating Flag               
+                                                                                                                                                                                                                      
+Checked          
+
+2694 - Clearances                       
+Vertical clearance checked with LIDAR in 2014.                                                                                                                                                                        
+Checked          
+
+                                        
+Vertical clearance checked 3/29/16, to be 15'-10" minimum below Girder 2F to the left fog line stripe (near Pier 3) along southbound I-5.

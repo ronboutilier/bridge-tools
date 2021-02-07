@@ -1,0 +1,43 @@
+
+<head>
+<style>
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+<center>
+
+
+
+
+        <table>
+                <tr><b>{{bridge_total}} Bridges</b></tr>
+                <tr>
+                    <th>&#10003;</th>
+                    <th>Sructure ID</th>
+                    <th>Bridge No</th>
+                    <th>Route</th>
+                    <th>Milepost</th>
+                    <th>Name</th>
+                    <th>Notes</th>
+                </tr>
+        {% for bridge_id,structure_id,inspected_form,status,initials,route,milepost,name,trip_notes_form,trip_notes,lattitude,longitude in bridge %}
+
+                <tr>
+                    <td style="width: 5%;"> 
+                    </td>
+                    <td>{{structure_id}}</td>
+                    <td>{{bridge_id}}</td>
+                    <td>{{route}}</td>
+                    <td>{{milepost}}</td>
+                    <td>{{name}}</td>
+                    <td style="width: 40%;">
+                    </td>
+                </tr>
+        {% endfor %}
+        </table>
+</center>
+</body>

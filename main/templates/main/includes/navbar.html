@@ -1,0 +1,36 @@
+
+<nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">BRIDGE TOOLS ONLINE (TEST)</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <ul id="calculators_dropdown" class="dropdown-content">
+          <li><a href="/deck_conditions/">Deck Conditions</a></li>
+          <li><a href="/4_year_evaluation/">4-Year Evaluation</a></li>
+          <li><a href="/paint_quantities/">Paint Quantities</a></li>
+          <li><a href="/bridge_check/">Bridge Check</a></li>
+        </ul>
+        <li><a class="dropdown-trigger" data-target="calculators_dropdown">Calculators</a></li>
+
+
+        <ul id="dummies_dropdown" class="dropdown-content">
+          <li><a href="/bridge_mechanics/">Bridge Mechanics</a></li>
+          <li><a href="/ubit_videos/">UBIT Videos</a></li>
+        </ul>
+        <li><a class="dropdown-trigger" data-target="dummies_dropdown">Tutorials</a></li>
+
+        <ul id="misc_resources_dropdown" class="dropdown-content">
+          <li><a href="/wsdot_stations/">WSDOT Stations</a></li>
+        </ul>
+        <li><a class="dropdown-trigger" data-target="misc_resources_dropdown">Misc Resources</a></li>
+
+        {% if user.is_authenticated %}
+            <li><a href="/account/">{{user.username}} Profile</a></li>
+            <li><a href="/logout/">Logout</a></li>
+        {% else %}
+            <li><a href="/register/">Register</a></li>
+            <li><a href="/login/">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+</nav>
