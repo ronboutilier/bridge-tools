@@ -31,7 +31,7 @@ SECRET_KEY = config["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.bridgetoolsonline.com','198.58.119.229']
+ALLOWED_HOSTS = ['www.bridgetoolsonline.com','www.ronboutilier.com','198.58.119.229']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
+    'ronboutilier.apps.RonboutilierConfig',
     'tinymce',
     'crispy_forms',
 ]
@@ -80,6 +81,7 @@ TINYMCE_DEFAULT_CONFIG = {
     }
 
 MIDDLEWARE = [
+    'mysite.virtualhostmiddleware.VirtualHostMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

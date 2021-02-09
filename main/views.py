@@ -82,13 +82,13 @@ def trip_handler(request,trip):
 		return [bridge, FHWA_bridge_information, bridge_total]
 	else:
 		messages.error(request, "You must be logged in to view this content")
-		return redirect("main:homepage")
+		return redirect("homepage")
 
 def delete_trip(request, trip):
 	if request.method == 'POST':
 		trip = Selection_Sets.objects.get(trip_name=trip)
 		trip.delete()
-	return redirect("main:homepage")
+	return redirect("homepage")
 
 
 
@@ -347,7 +347,7 @@ def homepage(request):
 				instance = form.save(commit=False)
 				instance.inspector = request.user
 				instance.save()
-				return redirect('main:homepage')
+				return redirect('homepage')
 		else:
 			form = TripForm()
 		return render(request, 'main/trips.html',{
@@ -391,7 +391,7 @@ def register(request):
 def logout_request(request):
 	logout(request)
 	messages.info(request, "Logged out successfully!")
-	return redirect("main:homepage")
+	return redirect("homepage")
 
 def login_request(request):
 	if request.method == "POST":
@@ -403,7 +403,7 @@ def login_request(request):
 			if user is not None:
 				login(request, user)
 				messages.info(request, f"You are now logged in as {username}")
-				return redirect("main:homepage")
+				return redirect("homepage")
 			else:
 				messages.error(request, "Invalid username or password")
 
