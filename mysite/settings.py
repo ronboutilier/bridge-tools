@@ -31,7 +31,17 @@ SECRET_KEY = config["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.bridgetoolsonline.com','www.ronboutilier.com','198.58.119.229']
+ALLOWED_HOSTS = [
+	'www.bridgetoolsonline.com',
+	'bridgetoolsonline.com',
+	'www.ronboutilier.com',
+	'ronboutilier.com',
+	'www.anyonecanlearnengineering.com',
+	'anyonecanlearnengineering.com',
+	'www.steamrollerfitness.com',
+	'steamrollerfitness.com',
+	'198.58.119.229'
+]
 
 
 # Application definition
@@ -45,6 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'ronboutilier.apps.RonboutilierConfig',
+    'anyone.apps.AnyoneConfig',
+    'steamroller.apps.SteamrollerConfig',
     'tinymce',
     'crispy_forms',
 ]

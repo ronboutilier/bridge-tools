@@ -17,6 +17,12 @@ from django.conf import settings
 def trip_handler(request,trip):
 	if request.user.is_authenticated:
 		selection_set = Selection_Sets.objects.get(trip_name=trip).selection_set ###selection set file
+		trip_name = Selection_Sets.objects.get(trip_name=trip).trip_name
+		trip_summary = Selection_Sets.objects.get(trip_name=trip).trip_summary
+		lead = Selection_Sets.objects.get(trip_name=trip).lead
+		co = Selection_Sets.objects.get(trip_name=trip).co
+		start = Selection_Sets.objects.get(trip_name=trip).start
+		end = Selection_Sets.objects.get(trip_name=trip).end
 		with selection_set.open('r') as f:
 			selection_set = f.readlines()
 		f.close()
@@ -79,7 +85,7 @@ def trip_handler(request,trip):
 
 		bridge_total = len(bridge_id)
 		bridge = zip(bridge_id,structure_id,inspected_form,status,initials,route,milepost,name,trip_notes_form,trip_notes,lattitude,longitude)
-		return [bridge, FHWA_bridge_information, bridge_total]
+		return [bridge, FHWA_bridge_information, bridge_total, trip_name, trip_summary, lead, co, start, end]
 	else:
 		messages.error(request, "You must be logged in to view this content")
 		return redirect("homepage")
@@ -141,10 +147,21 @@ def inspected(request,trip,structure_id):
 def cover_sheet(request,trip):
 	bridge = trip_handler(request,trip)[0]
 	bridge_total = trip_handler(request,trip)[2]
+	trip_name = trip_handler(request,trip)[3]
+	trip_summary = trip_handler(request,trip)[4]
+	lead = trip_handler(request,trip)[5]
+	co = trip_handler(request,trip)[6]
+	start = trip_handler(request,trip)[7]
+	end = trip_handler(request,trip)[8]
 	return render(request, 'main/includes/cover_sheet.html',{
 		'bridge':list(bridge),
 		'bridge_total':bridge_total,
-		'trip':trip,
+		'trip_name':trip_name,
+		'trip_summary':trip_summary,
+		'lead':lead,
+		'co':co,
+		'start':start,
+		'end':end,
 		})
 
 def checkout_check(request,trip):
@@ -361,8 +378,22 @@ def homepage(request):
 def getting_started(request):
     return render(request, 'main/getting_started.html')
 
+
+
+
 def bridge_mechanics(request):
 	return render(request, 'main/bridge_mechanics.html')
+
+def truss_analysis(request):
+        return render(request, 'main/includes/truss_analysis.html')
+
+def reinforced_concrete(request):
+        return render(request, 'main/includes/reinforced_concrete.html')
+
+def prestressed_concrete(request):
+        return render(request, 'main/includes/prestressed_concrete.html')
+
+
 
 def ubit_videos(request):
 	return render(request, 'main/ubit_tutorials.html')

@@ -28,6 +28,9 @@ urlpatterns = [
 	path("login/", views.login_request,name="login"),
     path('getting_started/', views.getting_started, name='getting_started'),
     path('bridge_mechanics/', views.bridge_mechanics, name='bridge_mechanics'),
+    path('bridge_mechanics/truss_analysis', views.truss_analysis, name='truss_analysis'),
+    path('bridge_mechanics/prestressed_concrete', views.prestressed_concrete, name='prestressed_concrete'),
+    path('bridge_mechanics/reinforced_concrete', views.reinforced_concrete, name='reinforced_concrete'),
     path('ubit_videos/', views.ubit_videos, name='ubit_videos'),
     path('<slug:trip>', views.bridge_space, name="bridge_space"),
     path('<slug:trip>/delete_trip', views.delete_trip, name="delete_trip"),
@@ -36,7 +39,7 @@ urlpatterns = [
     path('<slug:trip>/<slug:structure_id>', views.bridge_view, name="bridge_view"),
     path('<slug:trip>/<slug:structure_id>/bridge_model', views.bridge_model, name="bridge_model"),
     path('<slug:trip>/<slug:structure_id>/inspected', views.inspected, name="inspected"),
-    path('<slug:trip>/<slug:structure_id>/trip_notes', views.trip_notes, name="trip_notes"),     
+    path('<slug:trip>/<slug:structure_id>/trip_notes', views.trip_notes, name="trip_notes"),
     path('<slug:trip>/<slug:structure_id>/<int:element_id>', views.element_view, name="element_view"),
 ]
 

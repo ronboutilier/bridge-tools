@@ -1,7 +1,24 @@
-{% extends "main/header.html" %}
+{% extends 'main/header.html' %}
 
 {% block content %}
 
-Hello
 
+        <h3>Your Trips:</h3>
+
+        <div class="row">
+                <div class="col s12 m6 l4">
+                    <a href="{% url 'truss_analysis' %}", style="color:#000">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <div class="card-title">Truss Analysis</div>
+                                <p>-Identifying Tension Members</p>
+                                <p>-Identifying Zero Force Members</p> 
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        </div>
+
+
+    
 {% endblock %}

@@ -20,7 +20,7 @@ class NewUserForm(UserCreationForm):
 class TripForm(forms.ModelForm):
     class Meta:
         model = Selection_Sets
-        fields = ('trip_name','trip_summary','selection_set')
+        fields = ('trip_name','trip_summary','lead','co','start','end','selection_set')
 
 class InspectedForm(forms.ModelForm):
     class Meta:

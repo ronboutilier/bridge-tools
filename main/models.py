@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+import datetime
 from django.contrib.auth.models import User
 
 class Selection_Sets(models.Model):
@@ -7,6 +7,11 @@ class Selection_Sets(models.Model):
 	selection_set = models.FileField(upload_to='selection_sets/')
 	trip_summary = models.CharField(max_length=200)	
 	inspector = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+	lead = models.CharField(max_length=3,default="xxx")
+	co = models.CharField(max_length=3,default = "xxx")
+	start = models.DateField(default=datetime.date.today)
+	end = models.DateField(default=datetime.date.today) 
+
 
 	class Meta:
 		verbose_name_plural = "Sets"
@@ -26,7 +31,7 @@ class Bridge(models.Model):
 	initials = models.CharField(max_length=3)
 	trip_notes = models.CharField(max_length=200, default='enter details here')
 	element_notes = models.FileField(upload_to='notes/')
-	element_history = models.FileField(upload_to='history/')
+	element_history = models.FileField(upload_to='history/',blank=False,null=True)
 	trip_name = models.ForeignKey(Selection_Sets, on_delete=models.CASCADE, default=1, verbose_name="Set")
 
 	class Meta:

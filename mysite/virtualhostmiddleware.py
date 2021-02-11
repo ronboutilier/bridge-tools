@@ -1,6 +1,12 @@
 virtual_hosts = {
     "www.bridgetoolsonline.com":"main.urls",
+    "bridgetoolsonline.com":"main.urls",
     "www.ronboutilier.com":"ronboutilier.urls",
+    "ronboutilier.com":"ronboutilier.urls",
+    "www.anyonecanlearnengineering.com":"anyone.urls",
+    "anyonecanlearnengineering.com":"anyone.urls",
+    "www.steamrollerfitness.com":"steamroller.urls",
+    "steamrollerfitness.com":"steamroller.urls",
 }
 
 
