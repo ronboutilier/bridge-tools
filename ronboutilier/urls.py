@@ -23,6 +23,9 @@ app_name = "ronboutilier"
 
 urlpatterns = [
 	path("", views.homepage,name="homepage"),
+	path("ronboutilier_register/", views.register,name="register"),
+	path("ronboutilier_logout/", views.logout_request,name="logout"),
+	path("ronboutilier_login/", views.login_request,name="login"),
 ]
 
 

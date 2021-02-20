@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/about/">About <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="ProjectsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Websites
+        </a>
+        <div class="dropdown-menu" aria-labelledby="ProjectsDropdown">
+          <a class="dropdown-item" href="http://www.bridgetoolsonline.com">Bridge Tools Online</a>
+          <a class="dropdown-item" href="http://www.anyonecanlearnengineering.com">Anyone Can Learn Engineering</a>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="ProjectsDropdown">
+      </li>
+
+{% if user.is_authenticated %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="WorkoutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Fitness Program
+        </a>
+        <div class="dropdown-menu" aria-labelledby="WorkoutDropdown">
+          <a class="dropdown-item" href="/health_metrics/">Health Metrics</a>
+          <a class="dropdown-item" href="/supplements/">Supplements</a>
+          <a class="dropdown-item" href="/primary_lift/">Primary Lift</a>
+          <a class="dropdown-item" href="/assistant_lift_1/">Assistant Lift 1</a>
+          <a class="dropdown-item" href="/assistant_lift_2/">Assistant Lift 2</a>
+          <a class="dropdown-item" href="/accessory_lift_1/">Accessory Lift 1</a>
+          <a class="dropdown-item" href="/accessory_lift_2/">Accessory Lift 2</a>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="WorkoutDropdown">
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/ronboutilier_account/">{{user.username}} Profile<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/ronboutilier_logout/">Logout<span class="sr-only">(current)</span></a>
+      </li> 
+{% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="/ronboutilier_register/">Register<span class="sr-only">(current)</span></a>
+      </li>                                                                                                                                                                                                              <li class="nav-item active">
+        <a class="nav-link" href="/ronboutilier_login/">Login<span class="sr-only">(current)</span></a>
+      </li>
+{% endif %}
+
+
+    </ul>
+  </div>
+
+</nav>
